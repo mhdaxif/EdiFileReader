@@ -1,4 +1,4 @@
-﻿@model EdiIndexViewModel
+﻿@model EdiListViewModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -15,7 +15,7 @@
 
     @{ int index = 0; }
 
-    @foreach (var edi in Model.EditModelList)
+    @foreach (var edi in Model.EdiList)
     {
         index += 1;
         <div class="card" style="margin-top: 4px;">
