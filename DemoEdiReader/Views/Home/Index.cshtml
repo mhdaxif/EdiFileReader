@@ -1,0 +1,39 @@
+﻿@model EdiIndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+ 
+<form method="post" enctype="multipart/form-data">
+    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+        <input type="file" name="filefield" multiple="multiple">
+        <button type="submit"> Submit </button>
+    </div>
+</form>
+  
+<div id="accordion" style="padding-top: 30px;">
+
+    @{ int index = 0; }
+
+    @foreach (var edi in Model.EditModelList)
+    {
+        index += 1;
+        <div class="card" style="margin-top: 4px;">
+            <div class="card-header">
+                <a class="collapsed card-link" data-toggle="collapse" href="#heading-@index">
+                    @edi.FileName
+                </a>
+            </div>
+            <div id="heading-@index" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    <textarea style="width: 100%; height: 60vh">
+                        @edi.ParsedData
+                    </textarea> 
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+ 
